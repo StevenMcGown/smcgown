@@ -1,0 +1,6 @@
+[submodule "themes/hugo-PaperMod"]
+	path = themes/hugo-PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "themes/hugo-calendly-shortcode"]
+	path = themes/hugo-calendly-shortcode
+	url = git@github.com:bespokesy/hugo-calendly-shortcode.git
