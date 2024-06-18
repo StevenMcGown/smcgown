@@ -27,6 +27,15 @@
     margin-inline-start: auto;
 }
 
+.donate-icons a {
+    display: inline-flex;
+    padding: 10px;
+}
+
+.donate-icons a svg {
+    height: 26px;
+    width: 26px;
+}
 
 .social-icons a {
     display: inline-flex;
@@ -37,6 +46,7 @@
     height: 26px;
     width: 26px;
 }
+
 
 code {
     direction: ltr;

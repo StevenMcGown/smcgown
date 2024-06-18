@@ -52,7 +52,32 @@
             </a>
             {{- end }}
         </div>
+        
+        <!-- If you can afford it, please support me with a donation 😊
+        {{- partial "donate_icons.html" -}} -->
+
         {{- end }}
     </div>
     {{- end}}
 </div>
+
+<div class="recent-posts">
+    <h2>Recent Blog Posts 💬</h2>&nbsp;
+    <ul>
+        {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+        <li class="post-entry">
+            <a href="{{ .Permalink }}">
+                <header class="entry-header">
+                    <h3>{{ .Title }}&nbsp;</h3>
+                </header>
+                <p class="entry-summary">
+                    {{ .Summary | plainify | truncate 150 }}
+                </p>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+
+

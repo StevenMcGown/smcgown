@@ -405,3 +405,26 @@ img.in-text {
     display: inline;
     margin: auto;
 }
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.entry-header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.entry-header-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Add some space between the icon and the text */
+}
+
+/* Optional: Add some margin to the icon for better spacing */
+.entry-header-icon img {
+    margin-right: 10px;
+}
