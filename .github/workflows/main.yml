@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          submodules: true  # This ensures submodules are checked out
 
       - name: Install Hugo CLI
         run: |
