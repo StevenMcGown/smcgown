@@ -54,4 +54,4 @@ jobs:
           aws-region: 'us-east-1'
 
       - name: Deploy to S3
-        run: aws s3 sync ./public s3://your-s3-bucket-name --delete
+        run: aws s3 sync ./public s3://smcgown.com --delete
