@@ -1,57 +1,47 @@
-name: Deploy Hugo Site to S3
+name: Deploy Hugo Static Site
 
 on:
   push:
-    paths-ignore:
-      - "images/**"
-      - "LICENSE"
-      - "README.md"
     branches:
       - master
-  workflow_dispatch:
-    inputs:
-      hugoVersion:
-        description: "Hugo Version"
-        required: false
-        default: "0.112.4"
-
-concurrency:
-  group: "deploy"
-  cancel-in-progress: true
-
-defaults:
-  run:
-    shell: bash
 
 permissions:
-  contents: read
   id-token: write
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+  S3_BUCKET_NAME: smcgown.com
+  CLOUDFRONT_DISTRIBUTION_ID: E3D9RMJRQ4K18Y
+  HUGO_VERSION: 0.126.1   
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.112.4' }}
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          submodules: recursive  # This ensures submodules are checked out recursively
+            submodules: true  # Ensure submodules are checked out, needed for hugo themes
 
-      - name: Install Hugo CLI
+      - name: Install Hugo
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          wget https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
+          tar -xzf hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
+          sudo mv hugo /usr/local/bin/
 
-      - name: Build with Hugo
-        run: hugo --minify
+      - name: Build Hugo site
+        run: |
+          hugo
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: 'us-east-1'
+          aws-region: ${{ env.AWS_REGION }}
+
       - name: Sync files to S3
         run: |
           aws s3 sync public/ s3://${{ env.S3_BUCKET_NAME }} --delete \
@@ -60,3 +50,5 @@ jobs:
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
+      
