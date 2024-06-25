@@ -4,12 +4,12 @@
   {{- with $pages.Prev . }}
   <a class="prev" href="{{ .Permalink }}">
     <span class="arrow">«</span>
-    <span class="text">{{ i18n "prev_page" }} {{ .Name }}</span>
+    <span class="text"> {{ .Name }}</span>
   </a>
   {{- end }}
   {{- with $pages.Next . }}
   <a class="next" href="{{ .Permalink }}">
-    <span class="text">{{ .Name }} {{ i18n "next_page" }}</span>
+    <span class="text">{{ .Name }}</span>
     <span class="arrow">»</span>
   </a>
   {{- end }}

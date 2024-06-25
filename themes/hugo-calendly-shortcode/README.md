@@ -64,7 +64,7 @@ git submodule update --remote --merge
    hugo mod init github.com/your_username/your_site_repo
    ```
 3. Add the hugo-calendly-shortcode module to your site config:
-   ```yaml
+   ```
    module:
       imports:
       - path: github.com/bespokesy/hugo-calendly-shortcode

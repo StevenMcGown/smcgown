@@ -13,8 +13,13 @@
 {{- $ShareButtons := (.Param "ShareButtons")}}
 {{- with $ShareButtons }}{{ $custom = true }}{{ end }}
 
-<ul class="share-buttons">
-    {{- if (or (cond ($custom) (in $ShareButtons "x") (true)) (cond ($custom) (in $ShareButtons "twitter") (true))) }}
+<ul class="share-buttons" style="text-align: center;">
+    <div style="text-align: center;width: 100%;">
+    <div style="text-align: center;width: 100%; margin-bottom: 10px;">
+        <p><strong>Enjoyed this article? Share it with your friends! 😊</strong></p>
+    </div>
+
+        {{- if (or (cond ($custom) (in $ShareButtons "x") (true)) (cond ($custom) (in $ShareButtons "twitter") (true))) }}
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on x"
             href="https://x.com/intent/tweet/?text={{ $title }}&amp;url={{ $pageurl }}&amp;hashtags={{- $.Scratch.Get "tags" -}}">
@@ -92,4 +97,5 @@
         </a>
     </li>
     {{- end }}
+</div>
 </ul>
