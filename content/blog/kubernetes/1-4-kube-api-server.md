@@ -2,6 +2,7 @@
 title: K8s 1.4 - The Kube API Server
 date: 2024-04-07T07:07:07+01:00
 summary: In-depth Over view of the Kube API Server
+type: "blog"
 ---
 ### Kubernetes API and Kube API Server
 

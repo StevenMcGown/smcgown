@@ -2,6 +2,7 @@
 title: K8s 6.14 - Image Security in K8s
 date: 2024-06-01T07:07:07
 summary: Understanding and Implementing Image Security in Kubernetes Environment
+type: "blog"
 ---
 We deployed a number of different kinds of pods hosting different kinds of applications throughout this course, like web apps, databases, and Redis cache, etc. Let's start with a simple pod definition file. For instance, here we have used the nginx image to deploy an nginx container. Let's take a closer look at this image name.
 

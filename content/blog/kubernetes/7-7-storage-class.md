@@ -2,6 +2,7 @@
 title: K8s 7.7 - Storage Class in K8s
 date: 2024-06-12T07:07:07
 summary: A deep dive into Storage Classes in Kubernetes
+type: "blog"
 ---
 ### Dynamic Provisioning with Storage Classes in Kubernetes
 

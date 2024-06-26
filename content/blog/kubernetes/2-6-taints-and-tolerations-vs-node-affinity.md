@@ -2,6 +2,7 @@
 title: K8s 2.6 - Taints and Tolerations vs Node Affinity
 date: 2024-04-29T07:07:07
 summary: Detailed analysis of Kubernetes Taints, Tolerations and Node Affinity, demonstrating how to manage workload deployments effectively.
+type: "blog"
 ---
 Take an example below: There are 5 nodes. The first one is tainted blue, the second red, and the third green.
 

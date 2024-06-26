@@ -2,6 +2,7 @@
 title: K8s 6.9 - API Groups
 date: 2024-05-27T07:07:07
 summary: An in-depth overview of API groups within the Kubernetes system
+type: "blog"
 ---
 Whatever operations we have done so far with the cluster, we've been interacting with the API server one way or the other, either through the Kube control utility or directly via REST.
 

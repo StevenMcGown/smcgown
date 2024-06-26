@@ -2,6 +2,7 @@
 title: K8s 6.17 - Network Policies
 date: 2024-06-04T07:07:07
 summary: Discussion and implementation of Network Policies in K8s
+type: "blog"
 ---
 Let's say that you have a web server serving front end to users, an app server serving backend APIs, and a database server. 
 1) The user sends in a request to the web server at port 80. 

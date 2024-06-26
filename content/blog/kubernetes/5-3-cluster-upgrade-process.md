@@ -2,6 +2,7 @@
 title: K8s 5.3 - Cluster Upgrade Process
 date: 2024-05-16T07:07:07
 summary: Procedure & Guidelines for Upgrading a Kubernetes Cluster
+type: "blog"
 ---
 We previously saw how Kubernetes manages its software releases and how different components have their versions. We will keep dependency on external components, like ETCD and CoreDNS, aside for now and focus on the core control plane components:
 - Kube API Server

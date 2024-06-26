@@ -2,6 +2,7 @@
 title: K8s 6.2 - Authentication in K8s
 date: 2024-05-20T07:07:07
 summary: Exploration & Understanding of Authentication Process in K8s Administration
+type: "blog"
 ---
 As we have seen already, the Kubernetes cluster consists of multiple nodes, physical or virtual, and various components that work together. There are many types of users that want access to the cluster for various reasons. 
 - **Administrators** access the cluster to perform administrative tasks.

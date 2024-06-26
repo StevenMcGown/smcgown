@@ -2,6 +2,7 @@
 title: K8s 1.5 - Kube Controller Manager
 date: 2024-04-09T07:07:07
 summary: Detailed Insight into Kube Controller Manager and Its Management
+type: "blog"
 ---
 In Kubernetes terminology, a controller is a process that continually monitors the state of various components within the system and works towards bringing the whole system to the desired functioning state.
 - **Node Controller** is responsible for monitoring the status of the nodes and taking necessary actions to keep the applications running. It does this through the KubeAPI Server. This controller tests the status of the nodes every five seconds so it can continuously monitor the health of the nodes. If it cannot reach a node for 40 seconds, it is marked as unreachable. After it is marked as unreachable, it gets 5 minutes to come back up. If it doesn't, it removes the pods assigned to that node and provisions them on the healthy ones if the pods were part of a replica set.

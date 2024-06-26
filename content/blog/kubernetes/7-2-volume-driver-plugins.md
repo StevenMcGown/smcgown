@@ -2,6 +2,7 @@
 title: K8s 7.2 - Volume Driver Plugins
 date: 2024-06-07T07:07:07
 summary: Exploration & Understanding of Volume Driver Plugins in K8s
+type: "blog"
 ---
 Previously when we talked about Docker Storage, we mentioned storage drivers, which are used to manage the storage for Docker images and containers by:
 - Maintaining the layered architecture

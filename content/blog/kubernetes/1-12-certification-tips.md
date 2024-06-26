@@ -2,6 +2,7 @@
 title: K8s 1.12 - Certification Tips
 date: 2024-04-16T07:07:07
 summary: Essential tips and strategies for achieving certification in Kubernetes 1.12
+type: "blog"
 ---
  If you want to create a template YAML file via the CLI, you can simply run `$ kubectl run`
 

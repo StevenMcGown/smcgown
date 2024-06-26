@@ -2,6 +2,7 @@
 title: K8s 2.10 - Multiple Schedulers
 date: 2024-05-03T07:07:07
 summary: In-depth Analysis & Understanding of Multiple Schedulers in K8s
+type: "blog"
 ---
  There are cases where you may want to have your own scheduling algorithm. For example, you may want a pod to be placed on a certain node depending on additional checks. In this case, the default scheduler does not cut it.
  - <mark>K8s is highly extensible; you can make your custom scheduler become the default scheduler or run it as an additional scheduler</mark>.

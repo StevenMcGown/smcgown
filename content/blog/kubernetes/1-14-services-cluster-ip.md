@@ -2,6 +2,7 @@
 title: K8s 1.14 - Services and Cluster IP
 date: 2024-04-18T07:07:07
 summary: Understanding and Implementation of Services and Cluster IP in Kubernetes
+type: "blog"
 ---
 The Cluster IP Service is which <mark>creates a virtual IP inside the cluster to enable communication between different services within the cluster.</mark>
 

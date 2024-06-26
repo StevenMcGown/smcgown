@@ -2,6 +2,7 @@
 title: K8s 6.10 - Authorization in Kubernetes
 date: 2024-05-28T07:07:07
 summary: Understanding the Principles and Mechanisms of Authorization in K8s
+type: "blog"
 ---
 So far, we have talked about authentication. We saw how someone can gain access to a cluster. We saw different ways that someone, a human or a machine, can get access to the cluster. Once they gain access, what can they do? That's what authorization defines.
 

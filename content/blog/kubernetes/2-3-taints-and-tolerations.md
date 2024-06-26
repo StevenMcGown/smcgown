@@ -2,6 +2,7 @@
 title: K8s 2.3 - Taints and Tolerations
 date: 2024-04-26T07:07:07
 summary: Understanding the mechanism of Taints and Tolerations in Kubernetes
+type: "blog"
 ---
 Taints and Tolerations are mechanisms used to <mark>control which nodes can or cannot run specific [[1.9 - Pods]]</mark>. This is useful when you want to influence the scheduling of pods based on certain conditions or constraints.
 ![Taints and Tolerations](/images/kubernetes/diagrams/2-3-2-taints-and-tolerations.png)

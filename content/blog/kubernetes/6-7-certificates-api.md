@@ -2,6 +2,7 @@
 title: K8s 6.7 - Certificates API in K8s
 date: 2024-05-25T07:07:07
 summary: Understanding and Implementing Certificates API in Kubernetes
+type: "blog"
 ---
 In the process of setting up the whole cluster, we have set up a CA server and a bunch of certificates for various components. We then started the services using the right certificates, and it's all up and working. Currently in this setup, whoever created all of these components is the only administrator and user of the cluster and has their own admin certificate and key.
 

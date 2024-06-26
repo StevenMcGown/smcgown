@@ -2,6 +2,7 @@
 title: K8s 1.8  kube-proxy
 date: 2024-04-12T07:07:07
 summary: Deep Dive into the Functionality & Use of kube-proxy in Kubernetes
+type: "blog"
 ---
 In a k8s cluster, every pod can reach every other pod. This is accomplished by deploying a pod networking solution to the cluster, which is an internal virtual network that spans across all the nodes in the cluster to which all the pods connect. This enables all of the pods to communicate with each other.
 ![KubeProxy](/images/kubernetes/diagrams/1-8-1-kube-proxy.png)

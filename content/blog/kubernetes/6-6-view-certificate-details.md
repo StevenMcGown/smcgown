@@ -2,6 +2,7 @@
 title: K8s 6.6 - View Certificate Details
 date: 2024-05-24T07:07:07
 summary: Guide to Viewing Certificate Details in K8s
+type: "blog"
 ---
 Let's think of a hypothetical scenario where you join a new team to help them manage their Kubernetes environment. You're a new administrator to this team, and you've been told that there are multiple issues related to certificates in the environment. So you're asked to perform a health check of all the certificates in the entire cluster. What do you do? 
 

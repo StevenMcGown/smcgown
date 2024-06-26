@@ -2,6 +2,7 @@
 title: K8s 8.1 - Switching and Routing in K8s
 date: 2024-06-13T07:07:07
 summary: Comprehensive Guide on Switching & Routing Mechanisms in Kubernetes
+type: "blog"
 ---
 ### Networking Basics
 

@@ -2,6 +2,7 @@
 title: K8s 1.16  Namespaces
 date: 2024-04-20T07:07:07
 summary: Comprehensive Guide on Utilizing Namespaces in Kubernetes
+type: "blog"
 ---
 Namespaces can be used in K8s to isolate groups of resources in a cluster. Names of resources need to be unique within a namespace, but not across namespaces.
 

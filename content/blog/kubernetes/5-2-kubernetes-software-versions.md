@@ -2,6 +2,7 @@
 title: K8s 5.2 - Kubernetes Software Versions
 date: 2024-05-15T07:07:07
 summary: An in-depth look at the various software versions of Kubernetes
+type: "blog"
 ---
 When you run `$ kubectl get nodes` on your k8s cluster, you will get an output similar to below:
 

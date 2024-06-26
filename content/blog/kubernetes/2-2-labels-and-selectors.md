@@ -2,6 +2,7 @@
 title: K8s 2.2 - Labels and Selectors
 date: 2024-04-25T07:07:07
 summary: Understanding and Working with Kubernetes Labels and Selectors
+type: "blog"
 ---
 
 Labels in Kubernetes are key-value pairs that are attached to objects like pods, nodes, services, and more. They are <mark>used to organize and select subsets of objects in a Kubernetes cluster</mark>. Labels are flexible and can be applied to a variety of resources.

@@ -2,6 +2,7 @@
 title: K8s 6.12 - Cluster Roles & Role Bindings
 date: 2024-05-30T07:07:07
 summary: Deep Dive into Cluster Roles & Role Bindings in K8s
+type: "blog"
 ---
 We discussed roles and role bindings in the previous lecture. In this lecture, we will talk about *cluster* roles and *cluster* role bindings. 
 

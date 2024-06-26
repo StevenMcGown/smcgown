@@ -2,6 +2,7 @@
 title: K8s 6.15 - Docker Security in K8s
 date: 2024-06-02T07:07:07
 summary: Deep Dive into Docker Security Measures for K8s Applications
+type: "blog"
 ---
 In this post, we will look at the various concepts related to security in Docker. Let's start with a host with Docker installed on it. 
 

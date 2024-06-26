@@ -2,6 +2,7 @@
 title: K8s 7.4  Volumes in K8s
 date: 2024-06-09T07:07:07
 summary: Detailed exploration of how to use volumes in Kubernetes
+type: "blog"
 ---
 Before we dive into persistent volumes, let's start with the basics of volumes in Kubernetes by first looking at how volumes work in Docker.
 

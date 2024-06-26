@@ -2,6 +2,7 @@
 title: K8s 5.4 - Working with etcdctl
 date: 2024-05-17T07:07:07
 summary: Detailed guide on working with etcdctl in Kubernetes
+type: "blog"
 ---
 `etcdctl` is a command line client for [**etcd**](https://github.com/coreos/etcd).
 

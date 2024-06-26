@@ -2,6 +2,7 @@
 title: K8s 2.4 - Working with Node Selectors
 date: 2024-04-27T07:07:07
 summary: Understanding and Implementing Node Selectors in Kubernetes
+type: "blog"
 ---
 Node selectors in Kubernetes are used to <mark>constrain which nodes your pod is eligible to be scheduled based on labels on nodes</mark>. By setting a node selector for pods, you specify a requirement that nodes must have a certain label for the pod to be scheduled on them.
 

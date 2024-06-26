@@ -2,6 +2,7 @@
 title: K8s 2.9  Static Pods
 date: 2024-05-02T07:07:07
 summary: Overview and utilisation of static pods in Kubernetes
+type: "blog"
 ---
 Up to this point, all of the pods have been managed by the kubelet through the KubeAPI Server and the kube-scheduler for instructions on deploying pods. The kubelet, however, can deploy static pods by itself. <mark>You may want to do this for bootstrapping purposes.</mark>
 - **Node Initialization**: Static pods can be used to run essential system components and services during the node initialization process. For example, components like networking agents, log collectors, or monitoring agents can be started as static pods to ensure they are available early in the pod lifecycle.

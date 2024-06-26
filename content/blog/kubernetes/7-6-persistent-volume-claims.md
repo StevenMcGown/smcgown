@@ -2,6 +2,7 @@
 title: K8s 7.6 - Persistent Volume Claims
 date: 2024-06-11T07:07:07
 summary: Understanding and Managing Persistent Volume Claims in K8s
+type: "blog"
 ---
 In the previous post, we created a Persistent Volume. Now, we will create a Persistent Volume Claim to make the storage available to a pod.
 

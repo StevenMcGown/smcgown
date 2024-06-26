@@ -2,6 +2,7 @@
 title: K8s 3.1 - Monitor Cluster Components
 date: 2024-05-05T07:07:07
 summary: Overview and guide on monitoring cluster components in Kubernetes
+type: "blog"
 ---
 You can monitor a kubernetes cluster using tools like **Dynatrace**. **Heapster** was one of the original monitoring solutions but is now deprecated, and **Metrics Server** is the slimmed-down version.
   - You can have 1 Metrics server per K8s cluster.

@@ -2,6 +2,7 @@
 title: K8s 6.3 - TLS Certification Creation
 date: 2024-05-21T07:07:07
 summary: Process & Guidelines for Creating TLS Certificates in Kubernetes
+type: "blog"
 ---
 A certificate is used to guarantee trust between two parties during a transaction. For example, in a Kubernetes environment, TLS certificates ensure that the communication between K8s components, such as the Kube API server, nodes, and controllers, is encrypted and that each component is authenticated to ensure the integrity of the cluster.
 

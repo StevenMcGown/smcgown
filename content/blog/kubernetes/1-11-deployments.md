@@ -2,6 +2,7 @@
 title: K8s 1.11 - Deployments
 date: 2024-04-15T07:07:07
 summary: Detailed guide on Deployments in Kubernetes
+type: "blog"
 ---
 You might want to perform rolling updates to deploy newer versions of an application, i.e. not update them all at once but rather one after the other. This ensures users have access to the application during the upgrade. If one of the updates unexpectedly fails, you want to be able to roll back. If you want to be able to make multiple changes to your environment such as upgrading versions, scaling, or modifying resource allocations, you don't want to do it all at once.
 

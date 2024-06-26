@@ -2,6 +2,7 @@
 title: K8s 7.3 - Container Storage Interface (CSI)
 date: 2024-06-08T07:07:07
 summary: Understanding & Implementing the Container Storage Interface in Kubernetes
+type: "blog"
 ---
 As we discussed before in [[1.2 - Docker vs. ContainerD]], in the past, Kubernetes used Docker alone as the container runtime engine, with all the code to work with Docker embedded within the Kubernetes source code. However, as other container runtimes like RKT and CRI-O emerged, it became important to extend support for different container runtimes without being dependent on the Kubernetes source code. This led to the development of the Container Runtime Interface (CRI).
 

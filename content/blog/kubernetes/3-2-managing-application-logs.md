@@ -2,6 +2,7 @@
 title: K8s 3.2 - Managing Application Logs
 date: 2024-05-06T07:07:07
 summary: Detailed Insight into Management & Analysis of Application Logs in Kubernetes
+type: "blog"
 ---
 If you want to see the logs coming from a container, you must use the container's logs command. For example, Docker, say that we run an example container that just generates random logs:
 `$ docker run -d testing/event-simulation`

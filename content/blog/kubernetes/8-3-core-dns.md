@@ -2,6 +2,8 @@
 title: K8s 8.3 - Core DNS in Kubernetes
 date: 2024-06-15T07:07:07
 summary: Understanding and Working with Core DNS in Kubernetes
+type: "blog"
+type: "blog"
 ---
 ### Setting Up a DNS Server with CoreDNS
 

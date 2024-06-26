@@ -2,6 +2,7 @@
 title: K8s 1.10  Replicasets
 date: 2024-04-14T07:07:07
 summary: An in-depth look at managing and manipulating Kubernetes Replicasets.
+type: "blog"
 ---
 Recall that Kubernetes controllers are the processes that monitor K8s objects.
 - The replication controller helps ensure high availability by spinning up new pods whenever old ones go down, thus maintaining the specified number of pods running at all times.

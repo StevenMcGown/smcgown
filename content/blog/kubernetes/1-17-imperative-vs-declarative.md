@@ -2,6 +2,7 @@
 title: K8s 1.17 - Imperative vs Declarative
 date: 2024-04-21T07:07:07
 summary: Comprehensive Overview between Imperative & Declarative Approaches in Kubernetes
+type: "blog"
 ---
 **Imperative:** Execute a specific list of instructions to get a desired outcome. If one step fails in the process, the end result is likely to be incorrect or may error out.
 

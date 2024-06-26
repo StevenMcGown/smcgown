@@ -2,6 +2,7 @@
 title: K8s 7.1 - Storage in Docker
 date: 2024-06-06T07:07:07
 summary: Understanding Storage Provisioning in Docker Environment within K8s
+type: "blog"
 ---
 In this post, we are going to talk about Docker storage drivers and file systems. We're going to see where and how Docker stores data and how it manages file systems of the containers.
 

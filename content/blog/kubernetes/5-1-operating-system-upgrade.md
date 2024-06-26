@@ -2,6 +2,7 @@
 title: K8s 5.1 - Operating System Upgrade
 date: 2024-05-14T07:07:07
 summary: A comprehensive guide to operating system upgrades in Kubernetes
+type: "blog"
 ---
 There are many scenarios where you might have to take down nodes as part of your cluster, say for maintenance purposes, like upgrading a based software or applying patches, like security patches, et cetera, on your cluster.
 - What happens when one of these nodes go down? Of course, the pods on them are not accessible.

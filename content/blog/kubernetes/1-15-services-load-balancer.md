@@ -2,6 +2,7 @@
 title: K8s 1.15 - Services & Load Balancer
 date: 2024-04-19T07:07:07
 summary: Exploring K8s Services, Load Balancer and its role in traffic routing
+type: "blog"
 ---
 The NodePort service allows you to load balance on a port across worker nodes, but we can also utilize the **Load Balancer** service, which <mark>provisions a load balancer for an application in supported cloud providers, distributing load across web servers in the frontend tier.</mark>
 

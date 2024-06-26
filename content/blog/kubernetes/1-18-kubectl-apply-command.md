@@ -2,6 +2,7 @@
 title: K8s 1.18  the kubectl apply Command
 date: 2024-04-22T07:07:07
 summary: Deep dive into the usage, best practices and scenarios for the 'kubectl apply' command in Kubernetes
+type: "blog"
 ---
 The `$ kubectl apply` is a declarative command which takes into consideration the <mark>local configuration file</mark>, the <mark>live object definition</mark> on K8s, and the <mark>last applied configuration</mark> before making a decision on what changes are to be made.
 - **Local Configuration File:**  A YAML or JSON file specifying the desired state of Kubernetes resources.

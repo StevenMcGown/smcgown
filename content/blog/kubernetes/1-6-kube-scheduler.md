@@ -2,6 +2,7 @@
 title: K8s 1.6 - Kubernetes Scheduler
 date: 2024-04-10T07:07:07
 summary: Detailed exploration into the Kubernetes Scheduler
+type: "blog"
 ---
 The Kube scheduler is the <mark>default scheduler</mark> responsible for determining which pod goes on which node. It doesn't actually place the pod on the node, that's the job of the kubelet. The scheduler is needed because certain criteria may be needed for certain nodes.
   - For example, you may have pods with different resource requirements or you may have certain nodes dedicated to certain applications.

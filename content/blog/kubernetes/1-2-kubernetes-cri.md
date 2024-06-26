@@ -2,6 +2,7 @@
 title: K8s 1.2 - Kubernetes Container Runtime Interface (CRI)
 date: 2024-04-05T07:07:07+01:00
 summary: Understanding the CRI and its Components
+type: "blog"
 ---
 
 Welcome back to this series on Kuberenets Administration. In this post, we talk about the purpose of the Container Runtime Interface.

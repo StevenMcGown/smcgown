@@ -2,6 +2,7 @@
 title: K8s 4.5 - Multi-Container Pods in Kubernetes
 date: 2024-05-11T07:07:07
 summary: Detailed analysis on the use and administration of multi-container pods in Kubernetes
+type: "blog"
 ---
 The idea of decoupling a large monolithic application into subcomponents is known as **microservices**. Using microservices enables us to develop and deploy a set of independent, small, and reusable code. This architecture can then help us scale up, down, as well as modify each service as required, as opposed to modifying the entire application. We can achieve this using multi-container pods.
 

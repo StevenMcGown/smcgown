@@ -2,6 +2,7 @@
 title: K8s 1.3 - ETCD in K8s
 date: 2024-04-06T07:07:07+01:00
 summary: In-depth Overview of ETCD and Its Role in Kubernetes
+type: "blog"
 ---
 
 Welcome back to this series on Kubernetes Administration. In this post, we will delve into the role of ETCD in Kubernetes clusters, exploring its key features, setup methods, and how it integrates with the overall Kubernetes architecture.

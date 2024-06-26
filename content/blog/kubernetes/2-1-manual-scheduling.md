@@ -2,6 +2,7 @@
 title: K8s 2.1 - Manual Scheduling in K8s
 date: 2024-04-24T07:07:07
 summary: Comprehensive Guide on Manual Scheduling in Kubernetes
+type: "blog"
 ---
 The scheduler is responsible for placing containers (pods) onto available nodes in the cluster. Its primary role is to <mark>ensure that pods are scheduled to run on nodes that meet their resource requirements and satisfy any constraints</mark> specified in the pod configuration.
 

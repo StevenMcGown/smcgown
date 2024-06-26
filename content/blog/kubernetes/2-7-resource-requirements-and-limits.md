@@ -2,6 +2,7 @@
 title: K8s 2.7 - Resource Requirements & Limits
 date: 2024-04-30T07:07:07
 summary: Understanding and Managing Resource Requirements & Limits in Kubernetes
+type: "blog"
 ---
 The K8s scheduler determines which node a pod goes to.
 - The scheduler takes into consideration the *amount of resources* required by a pod and those available on the nodes, then identifies the best node to place it on.

@@ -2,6 +2,7 @@
 title: K8s 6.16 - Security Contexts in K8s
 date: 2024-06-03T07:07:07
 summary: Detailed discussion & overview of security contexts in Kubernetes.
+type: "blog"
 ---
 As we saw in the previous post, when you run a Docker container, you have the option to define a set of security standards, such as the ID of the user used to run the container, the Linux capabilities that can be added or removed from the container, et cetera. 
 

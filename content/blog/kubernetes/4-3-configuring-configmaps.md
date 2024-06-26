@@ -2,6 +2,7 @@
 title: K8s 4.3 - Configuring Configmaps
 date: 2024-05-09T07:07:07
 summary: Detailed guide on how to configure Configmaps in Kubernetes
+type: "blog"
 ---
 We have previously learned how to define environment variables in a pod definition file. <mark>When you have a lot of pod definition files, it will become difficult to manage the environment data stored within the query's files.</mark> We can take this information out of the pod definition file and <mark>manage it centrally using configuration maps</mark>. 
 

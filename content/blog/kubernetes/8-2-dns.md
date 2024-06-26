@@ -2,6 +2,7 @@
 title: K8s 8.2 - DNS in K8s
 date: 2024-06-14T07:07:07
 summary: Understanding and Configuring DNS in Kubernetes
+type: "blog"
 ---
 In this post, we get introduced to DNS in Linux for absolute beginners. We will discuss the basic concepts and view some commands that will help us explore DNS configuration on hosts, specifically Linux hosts. 
 

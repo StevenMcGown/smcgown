@@ -2,6 +2,7 @@
 title: K8s 4.7 - Self-Healing Applications
 date: 2024-05-13T07:07:07
 summary: Understanding and Implementing Self-Healing Applications in Kubernetes
+type: "blog"
 ---
 Kubernetes supports self-healing applications through Replica Sets and Replication Controllers. The replication controller helps in ensuring that a POD is re-created automatically when the application within the POD crashes. It helps in ensuring enough replicas of the application are running at all times.
 

@@ -2,6 +2,7 @@
 title: K8s 6.11  Kubernetes RBAC
 date: 2024-05-29T07:07:07
 summary: Overview and Detailed Explanation of Role-Based Access Control in Kubernetes
+type: "blog"
 ---
 In this section, we delve deeper into role-based access controls. To create a role, we start by crafting a role object. This begins with a role definition file:
 

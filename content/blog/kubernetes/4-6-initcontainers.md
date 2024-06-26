@@ -2,6 +2,7 @@
 title: K8s 4.6  InitContainers
 date: 2024-05-12T07:07:07
 summary: A comprehensive guide to InitContainers in K8s
+type: "blog"
 ---
 In a multi-container pod, each container is expected to run a process that stays alive as long as the POD's lifecycle. For example in the multi-container pod that we talked about earlier that has a** web application and logging agent** (sidecar), both the containers are expected to stay alive at all times. The process running in the log agent container is expected to stay alive as long as the web application is running. If any of them fails, the POD restarts.
 

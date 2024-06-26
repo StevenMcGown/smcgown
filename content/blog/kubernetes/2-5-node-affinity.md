@@ -2,6 +2,7 @@
 title: K8s 2.5 - Node Affinity in Kubernetes
 date: 2024-04-28T07:07:07
 summary: Understanding and Implementing Node Affinity in K8s Environments
+type: "blog"
 ---
 The purpose of node affinity is to <mark>ensure that pods are assigned to particular nodes.</mark> Node Selectors also do this, but with much less capabilities.
 - Node affinity provides much more capabilities, but is much more complex.

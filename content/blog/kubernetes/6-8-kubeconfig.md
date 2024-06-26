@@ -2,6 +2,7 @@
 title: K8s 6.8  Kubeconfig
 date: 2024-05-26T07:07:07
 summary: Deep Dive into Kubeconfig in Kubernetes Administration
+type: "blog"
 ---
 So far, we have seen how to generate a certificate for a user. You've seen how a client uses the certificate file and key to query the Kubernetes REST API for a list of pods using cURL. In this case, my cluster is called "kube-test-server", so I send a cURL request to the address of the kube-apiserver while passing in the bearer files, along with the CA certificate as options. This is then validated by the API server to authenticate the user.
 

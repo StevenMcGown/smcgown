@@ -2,6 +2,7 @@
 title: K8s 1.19  Kubeadm
 date: 2024-04-23T07:07:07
 summary: Dive into the functionalities and administration of Kubeadm in Kubernetes
+type: "blog"
 ---
 `kubeadm` is a command-line tool used for setting up Kubernetes clusters. It is part of the Kubernetes project and simplifies the process of initializing, joining, and upgrading Kubernetes clusters. `kubeadm` focuses on providing a streamlined and consistent approach for cluster bootstrapping, making it easier for users to deploy Kubernetes on various platforms.
 

@@ -2,6 +2,7 @@
 title: K8s 2.8  DaemonSets
 date: 2024-05-01T07:07:07
 summary: Deep Dive into the Usage and Management of DaemonSets in Kubernetes
+type: "blog"
 ---
 Daemonsets are like Replica Sets; they help you deploy multiple instances of pods, but they help <mark>ensure that one copy of the pod is on each node in the cluster.</mark>
 - Whenever a new node is added to the cluster, a replica of the pod is automatically added to that node, and when a node is removed, that pod is also removed.

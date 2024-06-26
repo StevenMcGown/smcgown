@@ -2,6 +2,7 @@
 title: K8s 6.13 - Service Accounts
 date: 2024-05-31T07:07:07
 summary: Detailed Overview of Service Accounts in Kubernetes
+type: "blog"
 ---
 There are two types of accounts in Kubernetes: User accounts and service accounts.
 

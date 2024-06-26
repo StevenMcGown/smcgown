@@ -2,6 +2,7 @@
 title: K8s 1.1 - Introduction to K8s
 date: 2024-04-04T07:07:07+01:00
 summary: Introduction & Overview of K8s Administration
+type: "blog"
 ---
 
 Welcome to this introductory post on Kubernetes! In this series, I will provide a comprehensive overview of managing a Kubernetes cluster. If you have any questions or suggestions, please click "Suggest Changes" at the top of this post to share your feedback.

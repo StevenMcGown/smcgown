@@ -2,6 +2,7 @@
 title: K8s 4.1 - Rolling Updates and Rollbacks
 date: 2024-05-07T07:07:07
 summary: Understanding and implementing rolling updates and rollbacks in Kubernetes
+type: "blog"
 ---
 ## Rollouts and Versioning
 
@@ -79,6 +80,7 @@ You can confirm this change by observing the pods on the respective replicasets:
 `$ kubectl get replica sets`
 
 In summary: 
+type: "blog"
 - `$ kubectl create` to create deployments
 - `$ kubectl get deployments` to list them
 - `$ kubectl apply` and `kubectl set image` for updates

@@ -2,6 +2,7 @@
 title: K8s 5.5 - Backup and Restore Methods
 date: 2024-05-18T07:07:07
 summary: Detailed Procedures & Techniques for Efficient K8s Backup and Restore Operations
+type: "blog"
 ---
 What you should consider backing up in Kubernetes cluster?
 - **Definition files** use to create deployments, pods, and services.

@@ -2,6 +2,7 @@
 title: K8s 7.5 - Persistent Volumes
 date: 2024-06-10T07:07:07
 summary: Understanding Persistent Volumes in Kubernetes
+type: "blog"
 ---
 Previously, we configured volumes within the pod definition file, meaning all storage configuration information was included in each pod's definition. Recall the example for the random number generation:
 

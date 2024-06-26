@@ -2,6 +2,7 @@
 title: K8s 6.5 - TLS in K8s Certificate Creation
 date: 2024-05-23T07:07:07
 summary: Understanding and Implementing TLS Certificate Creation within Kubernetes
+type: "blog"
 ---
 In this post we will use `openssl` to generate certificates, but keep in mind there are other tools that you can use such as EasyRSA and CFSSL.
 

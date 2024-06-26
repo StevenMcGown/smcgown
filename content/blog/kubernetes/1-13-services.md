@@ -2,6 +2,7 @@
 title: K8s 1.13 - Services in Kubernetes
 date: 2024-04-17T07:07:07
 summary: Detailed exploration of services and service-related functionalities in Kubernetes.
+type: "blog"
 ---
 **Services** in Kubernetes enable communication between various components within and outside of the application. They help connect applications together with other applications or users.
 ![Services](/images/kubernetes/diagrams/1-13-1-services.png)

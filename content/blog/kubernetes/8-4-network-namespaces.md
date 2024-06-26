@@ -2,6 +2,7 @@
 title: K8s 8.4 - Network Namespaces
 date: 2024-06-16T07:07:07
 summary: Detailed Guide & Introduction to Network Namespaces in Kubernetes
+type: "blog"
 draft: true
 ---
 In this post, we get introduced to network namespaces in Linux. Network namespaces are used by containers like Docker to implement network isolation.

@@ -2,6 +2,7 @@
 title: K8s 1.9 - Pods
 date: 2024-04-13T07:07:07
 summary: Detailed Exploration of Kubernetes Pods & Their Functionality
+type: "blog"
 ---
 At this point, we have assumed that we have working Docker images of the application made into a Docker repository and that the k8s cluster is up and running. <mark>Containers are not deployed directly onto nodes, they are encapsulated into pods,</mark> which are the single instance of an application and the smallest object that you can create in Kubernetes.
 - You can have multiple containers inside of a pod, but if you are scaling an application, you do not deploy multiple containers to a pod. Rather, you would deploy more pods on the node, so pods and containers have a 1-to-1 relationship.

@@ -2,6 +2,7 @@
 title: K8s 4.4 - Configuring Secrets
 date: 2024-05-10T07:07:07
 summary: A comprehensive guide on configuring Secrets in Kubernetes
+type: "blog"
 ---
 Here we have a simple Python web application that connects to MySQL database. On success, the application displays a successful message. 
 

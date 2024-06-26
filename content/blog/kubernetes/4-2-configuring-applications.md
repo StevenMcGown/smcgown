@@ -2,6 +2,7 @@
 title: K8s 4.2 - Configuring Applications
 date: 2024-05-08T07:07:07
 summary: Detailed guide on how to properly configure applications in Kubernetes
+type: "blog"
 ---
 Configuring applications comprises of understanding the following concepts:
 1) Configuring Command and Arguments on applications

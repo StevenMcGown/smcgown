@@ -2,6 +2,7 @@
 title: K8s 6.1 - Security Primitives
 date: 2024-05-19T07:07:07
 summary: Essential Security Measures in Kubernetes
+type: "blog"
 ---
 This section will be about the various security primitives at a high level overview. Let's begin with the hosts that form the cluster itself. 
 - All access to these hosts must be secured; route access disabled, password-based authentication disabled, and only <mark>SSH key-based authentication to be made available.</mark>

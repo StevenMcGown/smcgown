@@ -2,6 +2,7 @@
 title: K8s 6.18 - Developing Network Policies
 date: 2024-06-05T07:07:07
 summary: Detailed exploration of developing and implementing Kubernetes network policies
+type: "blog"
 ---
 Here we have the same web API and database pods from the previous lecture. 
 

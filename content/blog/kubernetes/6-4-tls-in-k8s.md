@@ -2,6 +2,7 @@
 title: K8s 6.4 - TLS in K8s
 date: 2024-05-22T07:07:07
 summary: A comprehensive guide on implementing Transport Layer Security(TLS) in K8s
+type: "blog"
 ---
 In the last post, we learned about server certificates, also known as **serving certificates**, which use public and private keys to secure connections. We also discussed Certificate Authorities (CAs) and their **root certificates**, which they use to sign **server certificates**. Additionally, we explored how servers can ask clients to verify themselves using **client certificates**. So, in summary, there are three types of certificates: 
 - Server certificates for servers

@@ -2,6 +2,7 @@
 title: K8s 2.11 - Configuring Scheduler Profiles
 date: 2024-05-04T07:07:07
 summary: Detailed Guide on How to Configure Scheduler Profiles in Kubernetes
+type: "blog"
 ---
 Take an example where we are scheduling a pod to one of 4 nodes. The following   
 definition files create a pod named "simple-webapp-color" with resource needs and a priority class called "high-priority." The priority class, defined in a definition file, has a numeric value, helping the pod indicate its importance for scheduling in the Kubernetes cluster.
