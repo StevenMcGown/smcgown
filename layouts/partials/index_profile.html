@@ -64,7 +64,7 @@
 <div class="recent-posts">
     <h2>Recent Blog Posts 💬</h2>&nbsp;
     <ul>
-        {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+        {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
         <li class="post-entry">
             <a href="{{ .Permalink }}">
                 <header class="entry-header">
