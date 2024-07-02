@@ -3,7 +3,7 @@ title: K8s 8.4 - Network Namespaces
 date: 2024-06-16T07:07:07
 summary: Detailed Guide & Introduction to Network Namespaces in Kubernetes
 type: "blog"
-draft: true
+draft: false
 ---
 In this post, we get introduced to network namespaces in Linux. Network namespaces are used by containers like Docker to implement network isolation.
 
@@ -149,34 +149,156 @@ If you compare this with the ARP table of the host, you see that the host ARP ta
 
 ## Connecting Multiple Namespaces
 
-Now, that worked when you had just two namespaces. What do you do when you have more of them? How do you enable all of them to communicate with each other? Just like in the physical world, you create a virtual network inside your host. Create a network, you need a switch, so to create a virtual network, you need a virtual switch. So you create a virtual switch within our host, and connect the namespaces to it. But how do you create a virtual switch within a host? There are multiple solutions available, such as the native solution, called as Linux bridge, and the Open vSwitch, etc. In this example, we will use the Linux bridge option. To create an internal bridge network, we add a new interface to the host using the `ip link add` command with the type set to bridge. We will name is Vnet0. As far as our host is concerned, it is just another interface, just like the 80 interface. It appears in the output of the `ip link` command along with the other interfaces. It's currently down, so you need to turn it up. Use `ip link set up` command to bring it up.
+When you only have two namespaces, setting up communication between them is straightforward. But what if you have more? How do you ensure they can all communicate with each other? Similar to the physical world, you create a virtual network within your host. To create this network, you need a switch. For a virtual network, you need a virtual switch.
+
+Here's how you do it: Create a virtual switch within your host and connect the namespaces to it. There are several options for creating a virtual switch, such as the native Linux bridge or Open vSwitch. In this example, we'll use the Linux bridge option to create a solution that will look like so:
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-x-network-namespaces.png)
+
+We can also use the previous namepsace commands to create a green and orange namespace, To create an internal bridge network, add a new interface to the host using the `ip link add` command with the type set to bridge, and we will name it v-net-0.
+
+```
+$ ip link add v-net-0 type bridge
+```
+To the host, this new interface is just another network interface, similar to the eth0 interface. It will appear in the output of the `$ ip link` command along with the other interfaces. Initially, it will be down, so you'll need to bring it up using:
+```
+$ ip link set dev v-net-0 up
+```
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-10-network-namespaces.png)
+
+For now, I have represented the bridge or switch to be like the switches in the previous posts, but going forward I will represent the virtual switch with a more legible icon.
 
 ## Connecting Namespaces to the Virtual Switch
 
-Now, for the namespaces, this interface is like a switch that it can connect to. So think of it as an interface for the host and a switch for the namespaces. So the next step is to connect the namespaces to this new virtual network switch. Earlier, we created the cable, or the eth pair with the v8 red interface on one end and blue interface on the other because we wanted to connect the two namespaces directly. Now, we will be connecting all namespaces to the bridge network. So we need new cables for that purpose. This cable doesn't make sense anymore so we will get rid of it. Use the `ip link delete` command to delete the cable. When you delete the link with one end the other end gets deleted automatically since they are a pair. Let us now create new cables to connect the namespaces to the bridge. Run the `ip link add` command and create a pair with v8 red on one end, like before, but this time the other end will be named V8 red VR as it connects to the bridge network. This naming convention will help us easily identify the interfaces that associate to the red namespace. Similarly, create a cable to connect the blue namespace to the bridge network. Now that we have the cables ready, it's time to get them connected to the namespaces. To attach one end of this, of the interface, to the red namespace, run the `ip link set v8 red netns red` command. To attach the other end to the bridge network, run the `ip link set` command on the v8 red VR end and specify the master for it as the VNET zero network. Follow the same procedure to attach the blue cable to the blue namespace and the bridge network. Let us now set IP addresses for these links and turn them up. We will use the same IP addresses that we used before, 192.168.15.1 and 192.168.15.2. And finally turn the devices up. The containers can now reach each other over the network. So we follow the same procedure to connect the remaining two namespaces to the same network. We now have all four namespaces connected to our internal bridge network and they can all communicate with each other. They have all IP addresses, 192.168.15.1, 2, 3, and 4.
+For the namespaces, this interface acts like a switch they can connect to. Think of it as an interface for the host and a switch for the namespaces. The next step is to connect the namespaces to this new virtual network switch.
+
+Previously, we created a cable, or the veth pair, with veth-red on one end and veth-blue on the other to connect the two namespaces directly. Now, we need to connect all namespaces to the bridge network, so we need new cables. The old cable is no longer needed, so we will delete it using the `ip link delete` command. Deleting one end of the link automatically deletes the other end since they are a pair.
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-11-network-namespaces.png)
+
+Let's create new cables to connect the namespaces to the bridge. Run the `ip link add` command to create a pair with veth-red on one end, like before, but name the other end veth-red-br to indicate it connects to the bridge network. This naming convention helps us easily identify the interfaces associated with the red namespace. Similarly, create a cable to connect the blue namespace to the bridge network.
+
+With the cables ready, it's time to connect them to the namespaces. To attach one end to the red namespace, run the `ip link set veth-red netns red` command. To attach the other end to the bridge network, run the `ip link set veth-red-br master Vnet0` command. Follow the same procedure to connect the blue cable to the blue namespace and the bridge network.
+
+Now, set IP addresses for these links and turn them up. Use the same IP addresses as before: 192.168.15.1 and 192.168.15.2. Finally, turn the devices up. The containers can now reach each other over the network.
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-12-network-namespaces.png)
+
+Repeat this procedure to connect the remaining two namespaces to the same network. Now, all four namespaces are connected to our internal bridge network and can communicate with each other. They have IP addresses 192.168.15.1, 192.168.15.2, 192.168.15.3, and 192.168.15.4.
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-12b-network-namespaces.png)
 
 ## Establishing Connectivity Between Host and Namespaces
 
-And remember, we assigned our host the IP 192.168.1.2. From my host, what if I tried to reach one of these interfaces in these namespaces? Will it work? No. My host is on one network and the namespaces are on another. But what if I really want to establish connectivity between my host and these namespaces? Remember we said that the virtual switch is actually a network interface for the host. So we do have an interface on the 192.168.15 network on our host. Since this just another interface all we need to do is assign an IP address to it so we can reach the
+Recall from before that we assigned our host the IP address 192.168.1.2. If you try to reach one of the interfaces in these namespaces from your host, it won't work because your host is on one network (192.168.1.0/24) and the namespaces are on another (192.168.15.0/24). But what if you really want to establish connectivity between your host and these namespaces?
 
- namespaces through it. Run the `ip addr` command to set the IP 192.168.15.5 to this interface. We can now ping the red namespace from our local host. Now remember, this entire network is still private and restricted within the host. From within the namespaces, you can't reach the outside world nor can anyone from the outside world reach the services or applications hosted inside. The only door to the outside world is the ethernet port on the host.
+Recall that the virtual switch is also a network interface for the host. Therefore, we do have an interface on the 192.168.15 network on our host. Since this is just another interface, all we need to do is assign an IP address to it so we can reach the namespaces through it. Use the ip addr add command to set the IP address 192.168.15.5 to this interface.
+ 
+```
+$ ip addr add 192.168.15.5/25 dev v-net-0
+```
+![Network Namespaces](/images/kubernetes/diagrams/8-4-12a-network-namespaces.png)
+
+We can now ping the red namespace from our local host. Now remember, this entire network is still private and restricted within the host. From within the namespaces, you can't reach the outside world nor can anyone from the outside world reach the services or applications hosted inside. The only door to the outside world is the ethernet port on the host.
 
 ## Configuring Bridge for LAN Connectivity
 
-So how do we configure this bridge to reach the LAN network through the ethernet port? Say there is another host attached to our LAN network with the address 192.168.1.3. How can I reach this host from within my namespaces? What happens if I try to ping this host from my namespace? The blue namespace sees that I'm trying to reach a network at 192.168.1, which is different from my current network of 192.168.15. So it looks at its routing table to see how to find that network. The routing table has no information about other network. So it comes back saying that the network is unreachable. So we need to add an entry into the routing table to provide a gateway or door to the outside world. So how do we find that gateway? A door or a gateway, as we discussed before, is a system on the local network that connects to the other network. So what is a system that has one interface on the network local to the blue namespace which is the 192.168.15 network and is also connected to the outside LAN network? Here's a logical view. It's the local host that have all these namespaces on so you can ping the namespaces. Remember, our local host has an interface to attach the private network so you can ping the namespaces. So our local host is the gateway that connects the two networks together. We can now add a row entry in the blue namespace to say route all traffic to the 192.168.1 network through the gateway at 192.168.15.5.
+To configure the bridge to reach the LAN network through the ethernet port, let's assume there is another host on the LAN network with the address 192.168.1.3.
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-14-network-namespaces.png)
+
+If you try to ping this host from within your namespaces, the blue namespace will see that you're trying to reach a network at 192.168.1, which is different from the current network of 192.168.15. The namespace will check its routing table and, finding no information about the other network, will report that the network is unreachable.
+
+### Solution
+To resolve this, you need to add an entry to the routing table to provide a gateway to the outside world. The gateway is a system on the local network that connects to another network. In this case, the gateway is your local host, which has an interface on the 192.168.15 network and also connects to the outside LAN network.
+
+Let's assume there is another host attached to our LAN network with the address 192.168.1.3. How can we reach this host from within our namespaces? What happens if we try to ping this host from the blue namespace? The blue namespace sees that it's trying to reach a network at 192.168.1, different from its current network of 192.168.15. So it checks its routing table to find that network. 
+
+```
+$ ip netns exec blue ping 192.168.1.3
+```
+
+The routing table has no information about the other network, so it returns an unreachable network message. Therefore, we need to add an entry to the routing table to provide a gateway to the outside world.
+
+What is a system that has one interface on the 192.168.15 network (local to the blue namespace) and also connects to the outside LAN network? The logical view shows that it's the <mark>local host</mark> with all these namespaces. Our local host has an interface to attach to the private network, allowing you to ping the namespaces. Thus, our local host is the gateway that connects the two networks together.
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-15-network-namespaces.png)
+
+We can now add a row entry in the blue namespace to say route all traffic to the 192.168.1 network through the gateway at 192.168.15.5.
+
+```
+$ ip netns blue ip route add 192.168.1.0/24 via 192.168.15.5
+```
 
 ## Configuring Default Gateway
 
-Now remember, our host has two IP addresses; one on the bridge network at 1925.168.15.5 and another on the external network at 192.168.1.2. Can you use any in the route? No, because the blue namespace can only reach the gateway in its local network at 192.168.15.5. The default gateway should be reachable from your namespace when you add it to your route. When you try to ping now, you no longer get the network unreachable message, but you still don't get any response back from the ping. What might be the problem? We talked about a similar situation in one of our earlier lectures where, from our home network, we tried to reach the external internet through our router. Our home network has our internal private IP addresses that the destination network don't know about so they cannot reach back. For this, we need NAT enable on our host acting as a gateway here so that it can send the messages to the LAN in its own name with its own address.
+
+Remember, our host has two IP addresses: one on the bridge network at 192.168.15.5 and another on the external network at 192.168.1.2. Can you use either address in the route? No, because the blue namespace can only reach the gateway on its local network at 192.168.15.5. The default gateway should be reachable from your namespace when you add it to your route.
+
+When you try to ping now, you no longer get the network unreachable message, but you still don't get any response back from the ping. What might be the problem?
+
+We discussed a similar situation in an earlier lecture where we tried to reach the external internet from our home network through our router. Our home network has internal private IP addresses that the destination network doesn't know about, so they cannot reach back.
+
+To resolve this, we need to enable NAT (Network Address Translation) on our host acting as a gateway so that it can send the messages to the LAN using its own address. This allows the destination network to respond correctly.
+
+By setting up NAT on the gateway, it will translate the private IP addresses from the blue namespace to its own public IP address before sending them out. When the external host responds, the gateway will translate the response back to the original private IP address and deliver it to the blue namespace. This way, communication is successfully established.
 
 ## Enabling NAT Functionality
 
-So how do we add NAT functionality to our host? You should do that using IP tables. Add a new rule in the NAT IP table in the post routing chain to masquerade or replace the from address on all packets coming from the source network 192.168.15.0 with its own IP address. That way, anyone receiving these packets outside the network will think that they're coming from the host and not from within the namespaces. When we try to ping now, we see that we are able to reach the outside world.
+So how do we add NAT functionality to our host? You should do that using IP tables. Add a new rule in the NAT IP table in the post routing chain to masquerade or replace the from address on all packets coming from the source network 192.168.15.0 with its own IP address. 
+
+```
+$ iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -j MASQUERADE
+```
+
+That way, anyone receiving these packets outside the network will think that they're coming from the host and not from within the namespaces. When we try to ping now, we see that we are able to reach the outside world.
+
+```
+$ ip netns exec blue ping 192.168.1.3
+```
 
 ## Reaching the Internet from Namespaces
 
-Finally, say the LAN is connected to the internet. We want the namespaces to reach the internet. So we try to ping a server on the internet at 8.8.8.8 from the blue namespace. We receive a similar message that the network is unreachable. By now we know why that is. We look at the routing table and see that we have routes to the network, 192.168.1, but not to anything else. Since these namespaces can reach any network our host can reach, we can simply say that, to reach any external network, talk to our host. So we add a default gateway specifying our host. We should now be able to reach the outside world from within these namespaces.
+Finally, say the LAN is connected to the internet. We want the namespaces to reach the internet.
+
+![Network Namespaces](/images/kubernetes/diagrams/8-4-16-network-namespaces.png)
+
+
+So, let's try to ping a server on the internet at 8.8.8.8 from the blue namespace. We receive a similar message that the network is unreachable. By now, we know why that is. When we look at the routing table, we see that we have routes to the network 192.168.1 but not to anything else.
+
+Since these namespaces can reach any network our host can reach, we can simply configure them to use our host as the gateway to reach any external network. To do this, we add a default gateway specifying our host.
+
+Here's how to add the default gateway:
+
+```
+$ ip netns exec blue ip route add default via 192.168.15.5
+```
+
+By doing this, we're instructing the blue namespace to send all traffic destined for external networks to our host, which will then route it appropriately. We should now be able to reach the outside world from within these namespaces.
 
 ## Connectivity from Outside World to Namespaces
 
-Now, what about connectivity from the outside world to inside the namespaces? Say for example, the blue namespace hosts a web application on Port 80. As of now, the namespaces are on an internal private network and no one from the outside world knows about them. You can only access these from the host itself. If you try to ping the private IP of the namespace from another host on another network, you will see that it's not reachable, obviously, because that host doesn't know about this private network. In order to make that communication possible you have two options. The two options that we saw in the previous lecture on that. The first is to give away the identity of the private network to the second host. So we basically add an IP route entry to the second host telling the host that the network 192.168.15 can be reached through the host at 192.168.1.2. But we don't want to do that. The other option is to add a port forwarding role using IP tables to say any traffic coming to Port 80 on the local host is to be forwarded to port 80 on the IP assigned to the blue namespace.
+
+Now, what about connectivity from the outside world to inside the namespaces? For example, suppose the blue namespace hosts a web application on Port 80. Currently, the namespaces are on an internal private network, and no one from the outside world knows about them. You can only access these namespaces from the host itself. If you try to ping the private IP of the namespace from another host on a different network, you'll find that it's not reachable because that host doesn't know about this private network.
+
+To make this communication possible, you have two options, as discussed in the previous lecture:
+
+Add an IP route entry to the second host: This involves telling the second host that the network 192.168.15 can be reached through the host at 192.168.1.2. However, this method involves exposing the identity of the private network, which we want to avoid.
+
+Port forwarding using IP tables: This option involves adding a port forwarding rule using IP tables. This rule will forward any traffic coming to Port 80 on the local host to Port 80 on the IP assigned to the blue namespace.
+
+Here's an example of how to set up port forwarding:
+
+```
+# Enable IP forwarding
+$ sudo sysctl -w net.ipv4.ip_forward=1
+
+# Add port forwarding rule
+$ sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.15.2:80
+
+# Allow forwarding
+$ sudo iptables -A FORWARD -p tcp -d 192.168.15.2 --dport 80 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+```
+
+With this setup, external hosts can reach the web application in the blue namespace by accessing the local host's IP address on Port 80. This method keeps the private network hidden while allowing external access to the services hosted within the namespaces.
