@@ -3,7 +3,6 @@ title: K8s 8.5 - Docker Networking
 date: 2024-06-17T07:07:07
 summary: Introduction to Networking in Docker
 type: "blog"
-draft: false
 ---
 In this post, we will look at networking in Docker. We will start with the basic networking options in Docker and then relate them to the concepts around networking namespaces. You will see how all of the networking concepts that we have learned up to this point apply to Docker networking as well.
 

@@ -3,7 +3,6 @@ title: K8s 8.6 - Container Network Interfaces
 date: 2024-06-18T07:07:07
 summary: Overview of Container Network Interfaces for Kubernetes
 type: "blog"
-draft: false
 ---
 
 ### Network Namespaces and Container Networking

@@ -3,7 +3,6 @@ title: K8s 8.7 - Cluster Networking
 date: 2024-06-19T07:07:07
 summary: Brief overview of how networking works in a Kubernetes cluster
 type: "blog"
-draft: false
 ---
 
 ### Lecture: Networking Configurations in a Kubernetes Cluster
