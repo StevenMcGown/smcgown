@@ -4,7 +4,7 @@ date: 2024-05-27T12:06:13-04:00
 draft: false
 ---
 
-![STM](/images/cover.jpeg#center)
+![STM](/images/cover.jpeg)
 <div style="text-align: center;">
   <p><em>A Cloud Engineer in the clouds.</em></p>
 </div>
