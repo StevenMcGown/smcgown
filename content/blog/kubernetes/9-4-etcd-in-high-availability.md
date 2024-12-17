@@ -185,17 +185,75 @@ ExecStart=/usr/local/bin/kube-apiserver \\
    WantedBy=multi-user.target
    ```
 
+This configuration ensures that etcd operates securely by enabling TLS encryption for both **client** and **peer** communications.
 
-#### Example Commands:
+- The following flags configure TLS for client-server communication:
+
+```
+   --listen-client-urls https://${INTERNAL_IP}:2379,https://127.0.0.1:2379
+   --advertise-client-urls https://${INTERNAL_IP}:2379
+   --client-cert-auth
+   --trusted-ca-file /etc/etcd/certs/ca.crt
+   --cert-file /etc/etcd/certs/server.crt
+   --key-file /etc/etcd/certs/server.key
+```
+
+- The following flags ensure secure communication between etcd peers (etcd nodes in the cluster):
+
+```
+   --listen-peer-urls https://${INTERNAL_IP}:2380
+   --initial-advertise-peer-urls https://${INTERNAL_IP}:2380
+   --initial-cluster "etcd1=https://${ETCD1_IP}:2380,etcd2=https://${ETCD2_IP}:2380,etcd3=https://${ETCD3_IP}:2380"
+   --peer-client-cert-auth
+   --peer-trusted-ca-file /etc/etcd/certs/ca.crt
+   --peer-cert-file /etc/etcd/certs/peer.crt
+   --peer-key-file /etc/etcd/certs/peer.key
+```
+
+Now that your etcd cluster is set up and running securely with TLS, you can use the etcdctl utility to interact with it. Make sure you set the environment variable ETCDCTL_API=3 to use the latest version of the etcd API. From here, you can explore more advanced operations like checking the cluster health, adding members, and watching keys for changes.
+
+**Set the API Version**  
+Ensure you're using the **v3 API**:
+
 ```
 $ export ETCDCTL_API=3
-
-$ etcdctl put name "John"
-
-$ etcdctl get name
-name 
-john
-
-$ etcdctl get / --prefix --keys-only
-name
 ```
+
+**Store a Key-Value Pair**  
+
+Add a key-value pair to etcd:
+
+```
+$ etcdctl put greeting "Hello, etcd!"
+```
+
+**Retrieve a Key**  
+
+Fetch the value of the stored key:
+
+```
+$ etcdctl get greeting
+greeting
+Hello, etcd!
+```
+
+**List All Keys**  
+
+List all the keys stored in the cluster:
+
+```
+$ etcdctl get / --prefix --keys-only
+greeting
+```
+
+Now that you can store and retrieve data, try exploring more commands:  
+- **Watch a key for changes**:  
+```
+etcdctl watch greeting
+```
+- **Check the cluster health**:  
+```
+etcdctl endpoint health
+```
+
+These commands validate that your cluster is functional and ready for more advanced use cases.
