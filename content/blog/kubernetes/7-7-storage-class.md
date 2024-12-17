@@ -6,7 +6,7 @@ type: "blog"
 ---
 ### Dynamic Provisioning with Storage Classes in Kubernetes
 
-In the previous lectures, we discussed how to create Persistent Volumes (PVs), claim storage with Persistent Volume Claims (PVCs), and use PVCs in pod definition files as volumes. In this post, we will explore dynamic provisioning using storage classes, which simplifies the process of provisioning storage for applications.
+In the previous posts, we discussed how to create Persistent Volumes (PVs), claim storage with Persistent Volume Claims (PVCs), and use PVCs in pod definition files as volumes. In this post, we will explore dynamic provisioning using storage classes, which simplifies the process of provisioning storage for applications.
 
 ### Static & Dynamic Provisioning
 

@@ -140,7 +140,7 @@ users:
     client-certificate: admin.crt
     client-key: admin.key
 ```
-- That is what most of the Kubernetes clients use. We will look at kubeconfig in depth in one of the upcoming lectures.
+- That is what most of the Kubernetes clients use. We will look at kubeconfig in depth in one of the upcoming posts.
 
 Now, we have the server-side certificates remaining, but there's one more crucial point to address. As mentioned in the previous posts, <mark>both clients and servers must validate each other's certificates</mark>. This necessitates that all parties possess **a copy of the Certificate Authority's public certificate**. 
 - In the case of web applications, this certificate is typically pre-installed in users' browsers. Similarly, <mark>in Kubernetes, for various components to authenticate each other, they must all possess a copy of the CA's root certificate</mark>. 

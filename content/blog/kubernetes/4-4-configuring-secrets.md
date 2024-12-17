@@ -26,7 +26,7 @@ if __name__ == "__main__"
 ```
 If you look closely into the code, you will see the host name, username, and password are hard coded, which of course not a good idea.
 
-As we learn in the previous lecture, one option would be to move these values into a ConfigMap. However, ConfigMap stores configuration data in plain text format. 
+As we learn in the previous post, one option would be to move these values into a ConfigMap. However, ConfigMap stores configuration data in plain text format. 
 - So while it would be okay to move the host name and username into a config map, it is definitely not the right place to store a password. This is where **secrets** come in.
 
 ---

@@ -12,7 +12,7 @@ First of all, why do you need authorization in your cluster? As an administrator
 
 As an admin, we are able to perform any operation but soon we will have others accessing the cluster as well such as the other administrators, developers, testers or other applications like monitoring applications or continuous delivery applications like Jenkins, et cetera.
 
-So, we will be creating accounts for them to access the cluster by creating usernames and passwords or tokens, or signed TL certificates or service accounts as we saw in the previous lectures. But we don't want all of them to have the same level of access as us. 
+So, we will be creating accounts for them to access the cluster by creating usernames and passwords or tokens, or signed TL certificates or service accounts as we saw in the previous posts. But we don't want all of them to have the same level of access as us. 
 
 ![Authorization](/images/kubernetes/diagrams/6-10-1-authorization.png)
 

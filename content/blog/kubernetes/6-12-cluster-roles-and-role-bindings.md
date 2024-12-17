@@ -4,7 +4,7 @@ date: 2024-05-30T07:07:07
 summary: Deep Dive into Cluster Roles & Role Bindings in K8s
 type: "blog"
 ---
-We discussed roles and role bindings in the previous lecture. In this lecture, we will talk about *cluster* roles and *cluster* role bindings. 
+We discussed roles and role bindings in the previous post. In this post, we will talk about *cluster* roles and *cluster* role bindings. 
 
 When we talked about roles and role bindings, we said that roles and role bindings are namespaced, meaning they are created within namespaces. If you don't specify a namespace, they are created in the default namespace and control access within that namespace alone. 
 

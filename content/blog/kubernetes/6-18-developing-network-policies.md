@@ -4,7 +4,7 @@ date: 2024-06-05T07:07:07
 summary: Detailed exploration of developing and implementing Kubernetes network policies
 type: "blog"
 ---
-Here we have the same web API and database pods from the previous lecture. 
+Here we have the same web API and database pods from the previous post. 
 
 ![Network Policies](/images/kubernetes/diagrams/6-17-4-network-policies.png)
 
@@ -39,7 +39,7 @@ This associates the network policy with the database pod and blocks out all traf
 
 ### Allowing Traffic from the API Pod
 
-However, we need the API pod to be able to query the database on port 3306. So that's what we are going to configure next. First, we need to figure out what type of policies should be defined on this network policy object to meet our requirements. There are two types of policies that we discussed in the previous lecture: ingress and egress. 
+However, we need the API pod to be able to query the database on port 3306. So that's what we are going to configure next. First, we need to figure out what type of policies should be defined on this network policy object to meet our requirements. There are two types of policies that we discussed in the previous post: ingress and egress. 
 
 Do we need ingress or egress here, or both? 
 

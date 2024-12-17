@@ -14,7 +14,7 @@ We need to consider two things when securing a Kubernetes cluster:
 1) Securing the communication between internal components
 2) Securing management access to the cluster through authentication and authorization mechanisms.
 
-In this lecture, our focus is on securing access to the Kubernetes cluster with authentication mechanisms, and in the next we will talk about the latter using TLS encryption.
+In this post, our focus is on securing access to the Kubernetes cluster with authentication mechanisms, and in the next we will talk about the latter using TLS encryption.
 
 ## Authentication Mechanisms
 Above we mentioned different types of users who access the cluster. 

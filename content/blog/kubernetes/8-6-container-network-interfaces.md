@@ -8,7 +8,7 @@ type: "blog"
 ### Network Namespaces and Container Networking
 
 So far, we have explored how network namespaces work, including creating an isolated network namespace environment within our system. Here's a summary of what we've covered:
-
+Ecauxpg73#
 **Connecting Namespaces**:
 1) Create multiple networking namespaces.
 2) Connect them through a bridge network.

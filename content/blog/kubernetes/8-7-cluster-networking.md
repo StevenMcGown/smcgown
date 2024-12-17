@@ -5,9 +5,7 @@ summary: Brief overview of how networking works in a Kubernetes cluster
 type: "blog"
 ---
 
-### Lecture: Networking Configurations in a Kubernetes Cluster
-
-In this lecture, we will cover the networking configurations required on the master and worker nodes in a Kubernetes cluster. The Kubernetes cluster consists of master and worker nodes, each requiring specific network setups. 
+The Kubernetes cluster consists of master and worker nodes, each requiring specific network setups. 
 
 ### Network Requirements for Nodes
 1. **Network Interfaces**:

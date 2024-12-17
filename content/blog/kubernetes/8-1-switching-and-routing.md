@@ -8,7 +8,7 @@ type: "blog"
 
 Let's now explore basic networking elements like switching, routing, gateways, and DNS, and get a brief introduction to CoreDNS. We'll also look at configuring DNS settings on a Linux system and understanding network namespaces in Linux.
 
-Instead of diving into theoretical concepts like the OSI model, we'll focus on practical configurations and commands from a Linux perspective. This approach is geared toward system administrators and application developers rather than network engineers. If you're already comfortable with Linux networking, feel free to skip to the Kubernetes-specific lectures.
+Instead of diving into theoretical concepts like the OSI model, we'll focus on practical configurations and commands from a Linux perspective. This approach is geared toward system administrators and application developers rather than network engineers. If you're already comfortable with Linux networking, feel free to skip to the Kubernetes-specific posts.
 
 ### Understanding Networks
 

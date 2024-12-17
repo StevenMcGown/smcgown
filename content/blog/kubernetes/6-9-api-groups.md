@@ -10,7 +10,7 @@ Let's say we want to check the version of the Kube API Server. We can access the
 
 `$ curl https://kube-test-server:6443/version`
 
-To get a list of pods, you would access the URL `api/v1/pods`. Our focus in this lecture is about these API pods, the version, and the API.
+To get a list of pods, you would access the URL `api/v1/pods`. Our focus in this post is about these API pods, the version, and the API.
 
 `$ curl https://kube-test-server:6443/api/v1/pods`
 

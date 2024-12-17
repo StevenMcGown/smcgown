@@ -237,7 +237,7 @@ Remember, our host has two IP addresses: one on the bridge network at 192.168.15
 
 When you try to ping now, you no longer get the network unreachable message, but you still don't get any response back from the ping. What might be the problem?
 
-We discussed a similar situation in an earlier lecture where we tried to reach the external internet from our home network through our router. Our home network has internal private IP addresses that the destination network doesn't know about, so they cannot reach back.
+We discussed a similar situation in an earlier post where we tried to reach the external internet from our home network through our router. Our home network has internal private IP addresses that the destination network doesn't know about, so they cannot reach back.
 
 To resolve this, we need to enable NAT (Network Address Translation) on our host acting as a gateway so that it can send the messages to the LAN using its own address. This allows the destination network to respond correctly.
 
@@ -281,7 +281,7 @@ By doing this, we're instructing the blue namespace to send all traffic destined
 
 Now, what about connectivity from the outside world to inside the namespaces? For example, suppose the blue namespace hosts a web application on Port 80. Currently, the namespaces are on an internal private network, and no one from the outside world knows about them. You can only access these namespaces from the host itself. If you try to ping the private IP of the namespace from another host on a different network, you'll find that it's not reachable because that host doesn't know about this private network.
 
-To make this communication possible, you have two options, as discussed in the previous lecture:
+To make this communication possible, you have two options, as discussed in the previous post:
 
 Add an IP route entry to the second host: This involves telling the second host that the network 192.168.15 can be reached through the host at 192.168.1.2. However, this method involves exposing the identity of the private network, which we want to avoid.
 

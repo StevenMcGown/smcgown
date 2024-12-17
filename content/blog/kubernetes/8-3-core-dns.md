@@ -8,7 +8,7 @@ type: "blog"
 
 In the previous post, we discussed the importance of a DNS server for managing name resolution in large environments with numerous hostnames and IPs. We also covered how to configure your hosts to point to a DNS server. In this post, we will learn how to configure a host as a DNS server using CoreDNS.
 
-We are given a server dedicated to acting as the DNS server, along with a set of IPs to configure as entries in the server. There are many DNS server solutions available; in this lecture, we will focus on CoreDNS.
+We are given a server dedicated to acting as the DNS server, along with a set of IPs to configure as entries in the server. There are many DNS server solutions available; in this post, we will focus on CoreDNS.
 
 #### Getting CoreDNS
 
